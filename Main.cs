@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Timers;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 
 namespace runapp
@@ -89,16 +90,10 @@ namespace runapp
             }
 
             string exePath = configArgs[argIndex++];
-            if(!Path.IsPathRooted(exePath) || exePath.StartsWith(".")) exePath = Path.Combine(runDir, exePath);
-
-            if (!File.Exists(exePath))
+            if (Regex.IsMatch(exePath, @"%[A-Za-z0-9\(\)]*%"))
             {
-                //MessageBox.Show("Exe file not found!");
-                //System.Environment.Exit(1);
-                //return;
+                exePath = Environment.ExpandEnvironmentVariables(exePath);
             }
-
-            StringBuilder output = new StringBuilder();
 
             StringBuilder args = new StringBuilder();
 
