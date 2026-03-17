@@ -22,12 +22,7 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <UseWindowsForms>true</UseWindowsForms>
-    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Update="System.Core"/>
-    <Reference Update="System.Xml.Linq"/>
-  </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
   </ItemGroup>
